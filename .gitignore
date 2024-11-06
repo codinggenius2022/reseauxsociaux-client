@@ -1,0 +1,45 @@
+# Next.js ignore files
+
+# Build and production files
+/.next/
+/dist/
+/build/
+
+# Node.js core files
+node_modules/
+npm-debug.log*
+
+# React and Next.js specific files
+/.cache/
+# .DS_Store files can be ignored
+.DS_Store
+# Thumbnail and other temporary files
+.thumbs
+*.tmp
+*.bak
+*.swp
+# IDE and editor files
+.vscode/
+.atom/
+.sublime-text
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Environment variables
+.env*
+.env.local
+.next-env.d/*
+
+# OS-specific files
+Thumbs.db
+
+# Miscellaneous
+*.log
+*.git
+
+# Yarn and pnpm files
+.yarn/
+.pnpm-debug.log
+

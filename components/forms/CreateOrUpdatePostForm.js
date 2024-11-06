@@ -1,9 +1,5 @@
-// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
-// const { CameraOutlined } = dynamic(() => import("@ant-design/icons"), {
-//   ssr: false,
-// });
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });

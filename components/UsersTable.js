@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Layout from "./Layout";
-import AdminRoute from "./routes/AdminRoute";
 import Modal from "react-modal";
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
 import { Avatar } from "antd";

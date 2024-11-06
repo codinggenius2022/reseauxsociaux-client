@@ -4,7 +4,8 @@ import { Avatar } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { toast } from "react-toastify";
-import renderHTML from "react-render-html";
+// import renderHTML from "react-render-html";
+import parse from "html-react-parser";
 
 const PostsTable = () => {
   const [posts, setPosts] = useState([]);
@@ -67,8 +68,8 @@ const PostsTable = () => {
           const content = row.original.content;
           const displayedContent =
             content.length > 100
-              ? renderHTML(content).props.children.slice(0, 20) + "..."
-              : renderHTML(content);
+              ? parse(content).props.children.slice(0, 20) + "..."
+              : parse(content);
 
           return <div>{displayedContent}</div>;
         },

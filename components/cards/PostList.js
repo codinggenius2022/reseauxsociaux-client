@@ -1,20 +1,8 @@
-import { Avatar, Modal } from "antd";
-import renderHTML from "react-render-html";
-import moment from "moment";
-import {
-  HeartFilled,
-  HeartOutlined,
-  CommentOutlined,
-  EditOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
-import PostImage from "../images/PostImage";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import axios from "axios";
-import Link from "next/link";
 import Post from "./Post";
 
 const PostList = ({ posts, newsfeed }) => {

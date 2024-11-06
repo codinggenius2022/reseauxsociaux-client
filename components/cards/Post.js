@@ -1,7 +1,9 @@
 import moment from "moment";
-import renderHTML from "react-render-html";
+// import renderHTML from "react-render-html";
+import parse from "html-react-parser";
 import { useContext } from "react";
 import { UserContext } from "../../context";
+
 import {
   CommentOutlined,
   DeleteOutlined,
@@ -45,7 +47,7 @@ const Post = ({
       <div></div>
       <div className="card-body">
         <PostImage post={post} />
-        {renderHTML(post?.content)}
+        {parse(post?.content)}
       </div>
       <div className="card-footer">
         <div className="d-flex justify-content-between">

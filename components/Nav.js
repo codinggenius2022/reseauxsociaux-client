@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context";
 import { useRouter } from "next/router";
-import { Avatar } from "antd";
 
 const Nav = () => {
   const [state, setState] = useContext(UserContext);

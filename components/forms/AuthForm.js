@@ -1,9 +1,5 @@
 import { LoadingOutlined } from "@ant-design/icons";
-import ProfileUpdate from "../../pages/user/profile/update";
-// import dynamic from "next/dynamic";
-// const { LoadingOutlined } = dynamic(() => import("@ant-design/icons"), {
-//   ssr: false,
-// });
+
 const AuthForm = ({
   username,
   setUsername,

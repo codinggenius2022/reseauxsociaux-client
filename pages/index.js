@@ -10,7 +10,7 @@ const socket = io(process.env.NEXT_PUBLIC_SOCKETIO, {
   path: "/socket.io",
   reconnection: true,
 });
-const Home = ({ serverSidePosts }) => {
+const Home = ({ serverSidePosts, error }) => {
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState("");
   const [visible, setVisible] = useState(false);
@@ -93,10 +93,10 @@ const Home = ({ serverSidePosts }) => {
   };
 
   const collection = posts.length > 0 ? posts : serverSidePosts;
-  const fireSocketIo = () => {
-    console.log("emitting sth via socket io");
-    socket.emit("send-message", "This is Abass");
-  };
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>
@@ -131,12 +131,35 @@ const Home = ({ serverSidePosts }) => {
 };
 
 export async function getServerSideProps() {
-  const { data } = await axios.get("http://localhost:8000/api/posts");
-  return {
-    props: {
-      serverSidePosts: data,
-    },
-  };
+  try {
+    const { data } = await axios.get(
+      "https://reseauxsociaux-server.onrender.com/api/posts"
+    );
+
+    console.log("API Response Data:", data); // Log the actual API response
+
+    return {
+      props: {
+        serverSidePosts: data, // Return the fetched data
+      },
+    };
+  } catch (err) {
+    // Log more detailed error information
+    console.error(
+      "Error fetching data:",
+      err.response ? err.response.data : err.message
+    );
+    if (err.response) {
+      console.error("HTTP Status Code:", err.response.status);
+    }
+
+    return {
+      props: {
+        serverSidePosts: [], // Fallback to empty array
+        error: err.response ? err.response.data : "An unknown error occurred.", // Provide specific error message if possible
+      },
+    };
+  }
 }
 
 export default Home;

@@ -8,8 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "vercel-build": "npm install react-render-html@1.0.0 && vercel build"
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "",

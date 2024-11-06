@@ -4,7 +4,6 @@ import { Avatar } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { toast } from "react-toastify";
-// import renderHTML from "react-render-html";
 import parse from "html-react-parser";
 
 const PostsTable = () => {

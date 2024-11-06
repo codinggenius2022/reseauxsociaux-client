@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useEffect, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import PostImage from "../../../components/images/PostImage";
-import renderHTML from "react-render-html";
 import moment from "moment";
 import {
   CommentOutlined,

@@ -132,31 +132,27 @@ const Home = ({ serverSidePosts, error }) => {
 
 export async function getServerSideProps() {
   try {
-    const { data } = await axios.get(
+    const response = await axios.get(
       "https://reseauxsociaux-server.onrender.com/api/posts"
     );
 
-    console.log("API Response Data:", data); // Log the actual API response
+    // Log entire response for debugging
+    console.log("API Response:", response);
 
     return {
       props: {
-        serverSidePosts: data, // Return the fetched data
+        serverSidePosts: response.data || [], // Ensure data fallback in case response.data is missing
       },
     };
   } catch (err) {
-    // Log more detailed error information
-    console.error(
-      "Error fetching data:",
-      err.response ? err.response.data : err.message
-    );
-    if (err.response) {
-      console.error("HTTP Status Code:", err.response.status);
-    }
+    // Detailed error logging
+    console.error("Error fetching data:", err.message);
+    console.error("Full error:", err);
 
     return {
       props: {
         serverSidePosts: [], // Fallback to empty array
-        error: err.response ? err.response.data : "An unknown error occurred.", // Provide specific error message if possible
+        error: err.response ? err.response.data : "An unknown error occurred.", // Provide a fallback error message
       },
     };
   }

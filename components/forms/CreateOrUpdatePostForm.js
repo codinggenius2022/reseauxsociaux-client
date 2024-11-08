@@ -7,6 +7,9 @@ const ReactQuill = dynamic(() => import("react-quill"), {
 import { CameraOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { createRef } from "react";
+
+const quillRef = createRef();
 
 const CreateOrUpdatePostForm = ({
   content,
@@ -28,6 +31,7 @@ const CreateOrUpdatePostForm = ({
             onChange={(e) => setContent(e)}
             className="form-control"
             placeholder="Write something..."
+            ref={quillRef}
           />
         </form>
       </div>

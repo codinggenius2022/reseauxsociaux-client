@@ -36,7 +36,7 @@ const Post = ({
         <div className="d-flex align-items-center">
           <Avatar src={loadImageUrl(post)} size={40} />
           <span style={{ marginLeft: "0.5rem" }}>
-            {"  "} {post?.postedBy?.username}
+            {"  "} {post?.postedBy?.name}
           </span>
         </div>
         <span style={{ marginLeft: "1rem" }}>

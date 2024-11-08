@@ -15,6 +15,7 @@ import {
 } from "@ant-design/icons";
 import { UserContext } from "../../../context";
 import Link from "next/link";
+import parse from "html-react-parser";
 
 const PostDetail = () => {
   const [state, setState] = useContext(UserContext);
@@ -177,7 +178,7 @@ const PostDetail = () => {
             </div>
             <div className="card-body">
               <PostImage post={post} />
-              {post && post.content && renderHTML(post.content)}
+              {post && post.content && parse(post.content)}
             </div>
             <div className="card-footer">
               <div className="d-flex justify-content-between">

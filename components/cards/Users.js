@@ -18,7 +18,7 @@ const Users = ({ users, loadImageUrl, handleFollow, handleUnFollow }) => {
                 style={{ textDecoration: "none" }}
                 href={`/user/${user.username}`}
               >
-                {user.username}
+                {user.name}
               </Link>
             }
             description={user.about}
